@@ -1,7 +1,3 @@
-
-
-```
-
 # Code Quiz
 
 ## Challenge 4: Code a JS Student Quiz
@@ -29,8 +25,9 @@ SO THAT I can gauge my progress compared to my peers</p>
 </ul>
 
 ### Website Screenshot
-<img src="./assets/images/WebsiteScreenshot.jpg"
-alt="Screenshot of website" />
+
+`<img src="/img/quizImg.png" alt="project screenshot" />`
 
 ### Website Link
-```
+
+[https://nkingchaos2284.github.io/quiz-about-js/](https://nkingchaos2284.github.io/quiz-about-js/)
