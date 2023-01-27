@@ -6,14 +6,14 @@ var mainP = document.querySelector('#main-p'); //sets var for main paragraph ele
 var timerEl = document.querySelector('#timer'); //set var for timer element
 var pageContentEl = document.querySelector('.page-content');
 var highScoreBtnEl = document.querySelector('.view-high-score');
-var questionCount = 0; //counts how many questions have been asked
+var questionCount = 0; //counts numbers of questions asked
 var questionNum = {}; //empty object to pass questions through
 
-//timer variable
+//timer
 var timeLeft = 0; //set timer to 60
 timerEl.textContent = 'Time: ' + timeLeft;
 
-//var for whether or not user got answer right
+//var for verifying answers
 var correctAns = document.createElement('div');
 correctAns.className = 'user-answer'
 correctAns.textContent = 'Previous Question: CORRECT!'
@@ -27,7 +27,7 @@ var questionList = [
     { question: 'Which method will you use to round the number 24.76 to the nearest integer?:', answerOne: 'round(24.76);', answerTwo: 'rnd(24.76);', answerThree: 'Math.round(24.76);', answerFour: 'Math.rnd(24.76);', solution: 'question-btn-three' },
     { question: 'Which of the following is an event listener in JavaScript?:', answerOne: 'blur', answerTwo: 'onclick', answerThree: 'Click', answerFour: 'click', solution: 'question-btn-four' },
     { question: 'What is the syntax of a “for” statement in JavaScript?:', answerOne: 'for(condition; initialization; increment)', answerTwo: 'for(initialization, condition, increment)', answerThree: 'for(increment; condition; initialization)', answerFour: 'for(initialization; condition; increment)', solution: 'question-btn-four' },
-    { question: 'Determine the result – String(“Hello”) === “Hello”;', answerOne: 'true', answerTwo: 'false', answerThree: 'SyntaxError', answerFour: 'ReferenceError', solution: 'question-btn-one' },
+    { question: 'Determine the result of: String(“Hello”) === “Hello”;', answerOne: 'true', answerTwo: 'false', answerThree: 'SyntaxError', answerFour: 'ReferenceError', solution: 'question-btn-one' },
     { question: 'Which of the following print content on the browser window?:', answerOne: 'write(“print content”);', answerTwo: 'document.write(print content);', answerThree: 'response.write(“print content”);', answerFour: 'document.write(“print content”);', solution: 'question-btn-four' }
 ];
 
@@ -76,13 +76,13 @@ var clearScoreBtn = document.createElement('button'); //create clear high score 
 clearScoreBtn.className = 'clear-score'
 clearScoreBtn.textContent = 'Clear High Scores'
 
-var startGame = function() {
+var startGame = function () {
     timeLeft = 60; //set timer to initial value
     mainHead.remove(); //removes initial main heading
     mainP.remove(); //removes initial main paragraph
     startBtnEl.remove(); //removes start button
 
-    timeInt = setInterval(function() { //declare global variable for timer
+    timeInt = setInterval(function () { //declare global variable for timer
         if (timeLeft > 0) {
             timerEl.textContent = 'Time: ' + timeLeft; //write timeLeft to the timer element
             timeLeft--; //decrement timer every interval
@@ -96,7 +96,7 @@ var startGame = function() {
     createQuestion();
 }
 
-var createQuestion = function() { //generates a question from the list
+var createQuestion = function () { //generates a question from the list
     questionHead.textContent = questionList[questionCount].question;
     pageContentEl.appendChild(questionHead); //add h1 to page (question)
 
@@ -126,7 +126,7 @@ var createQuestion = function() { //generates a question from the list
     questionFourBtnEl.addEventListener('click', newQuestion);
 }
 
-var newQuestion = function(event) {
+var newQuestion = function (event) {
     correctAns.remove();
     incorrectAns.remove();
 
@@ -163,17 +163,17 @@ function stopGame() { //once the timer hits zero or all questions have been answ
     questionHead.textContent = 'All Done!';
     questionDiv.textContent = 'Your final score is ' + timeLeft;
     questionDiv.appendChild(scoreForm);
-    document.addEventListener('submit', function(event) {
+    document.addEventListener('submit', function (event) {
         event.preventDefault();
         localStorage.setItem(userScore.value, timeLeft);
         highScore();
     });
 }
 
-var highScore = function() {
+var highScore = function () {
     try {
         clearInterval(timeInt);
-    } catch {}
+    } catch { }
     headerEl.remove(); //removes top header
     mainHead.remove(); //removes initial main heading
     mainP.remove(); //removes initial main paragraph
@@ -191,7 +191,7 @@ var highScore = function() {
         highScoreList.push(localStorage.getItem(localStorage.key(i)) + ' - ' + localStorage.key(i)); //get high score key and value
         highScoreList.sort().reverse(); //sort high scores with highest on top
     }
-    for (let i = 0; i < highScoreList.length; i++) { //loop to add highs cores to screen
+    for (let i = 0; i < highScoreList.length; i++) { //loop to add highs scores to screen
         var highScoreListItem = document.createElement('li') //turn high score into list item
         highScoreListItem.className = 'score-list'
         highScoreListItem.textContent = highScoreList[i]; //add content to list item
@@ -205,11 +205,11 @@ var highScore = function() {
     clearScoreBtn.addEventListener('click', clearScore);
 }
 
-var goBack = function() {
+var goBack = function () {
     window.location.reload();
 }
 
-var clearScore = function() {
+var clearScore = function () {
     localStorage.clear();
     alert('The high scores have been cleared');
     window.location.reload();

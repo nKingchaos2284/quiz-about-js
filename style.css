@@ -7,7 +7,6 @@
 
 ol {
   padding: 0;
-
 }
 
 /*header style*/
@@ -16,7 +15,6 @@ ol {
   display: flex;
   justify-content: space-between;
   margin: 20px;
-
 }
 
 /* main styles */
@@ -26,7 +24,6 @@ ol {
   text-align: center;
   margin-top: 50px;
   margin: 50px auto;
-
 }
 
 /*button styles*/
@@ -41,7 +38,6 @@ ol {
   border-radius: 10px;
   border: none;
   padding: 10px 20px;
-
 }
 
 /* button hover styles */
@@ -61,26 +57,22 @@ ol {
   padding: 5px;
   background-color: transparent;
   color: rgb (77, 0, 153);
-
 }
 
 .view-high-score:hover {
   background-color: lightgray;
-
 }
 
 #main-p {
   font-size: 18px;
-
 }
 
 .question-list {
-  list-style-type: decimal ;
+  list-style-type: decimal;
   font-size: 18px;
   width: 50%;
   list-style-position: inside;
   margin: 10px auto;
-
 }
 
 #question-btns {
@@ -90,9 +82,8 @@ ol {
   display: block;
   border: none;
   border-radius: 10px;
-  background-color: rgb(77, 0, 153);
+  background-color: rgb(0, 13, 153);
   color: white;
-
 }
 
 .user-answer {
@@ -102,8 +93,6 @@ ol {
   font-style: italic;
   color: gray;
   border-top: 2px solid lightgray;
-
-
 }
 
 .user-score {
@@ -114,15 +103,10 @@ ol {
 }
 
 .score-list,
-.score-list::marker{
+.score-list::marker {
   margin: 5px;
   padding: 5px;
   text-align: left;
-  background-color: gray;
+  background-color: rgb(135, 120, 110);
   border-radius: 10px;
 }
-
-
-
-
-
